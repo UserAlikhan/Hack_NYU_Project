@@ -1,4 +1,4 @@
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import useGetUserBills from "../hooks/useGetUserBills";
 import { useState } from "react";
 import { CircularProgress, TableCell, TableRow, TableHead, Table, TableContainer, Paper, Button, TableBody, TablePagination, Container, Typography, CardContent, Card, Box, CardActions, ListItemText, Collapse, List, ListItem, Divider } from "@mui/material";
@@ -8,8 +8,7 @@ import axios from "axios";
 const BillsPage = () => {
     const { accountId } = useParams();
     const location = useLocation();
-    const { userId, balance, rewards, type } = location.state;
-    const navigate = useNavigate();
+    const { balance, rewards } = location.state;
     const { userBillsDetails, loading, error } = useGetUserBills(accountId);
     console.log("userBillsDetails ", userBillsDetails)
     const [creditAssessment, setCreditAssessment] = useState<boolean | null>(null);
@@ -44,7 +43,8 @@ const BillsPage = () => {
         }
     }
 
-    const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+    const handleChangePage = (event: any, newPage: number) => {
+        console.log("event ", event)
         setPage(newPage);
     };
 

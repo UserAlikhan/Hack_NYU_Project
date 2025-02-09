@@ -28,7 +28,8 @@ const UserDetailsPage = () => {
     const [page, setPage] = useState(0);
     const rowsPerPage = 10;
 
-    const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+    const handleChangePage = (event: any, newPage: number) => {
+        console.log("event ", event)
         setPage(newPage);
     };
 

@@ -31,7 +31,8 @@ const UsersPage = () => {
         setFilteredUsers(users);
     }, [users]);
 
-    const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+    const handleChangePage = (event: any, newPage: number) => {
+        console.log("event ", event)
         setPage(newPage);
     };
 
